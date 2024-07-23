@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap");
 
 :root {
     --green-lighter: hsl(148, 38%, 91%);
@@ -9,15 +9,16 @@
     --grey-medium: hsl(186, 15%, 59%);
     --grey-darker: hsl(187, 24%, 22%);
 
-    --font-labels: 400 16px 'Karla', sans;
-    --font-header: 700 24px 'Karka', sans;
-    --font-input: 400 18px 'Karla', sans;
-    --font-submit: 700 16px 'Karla', sans;
+    --font-labels: 400 16px "Karla", sans;
+    --font-header: 700 32px "Karla", sans;
+    --font-input: 400 18px "Karla", sans;
+    --font-submit: 700 16px "Karla", sans;
 
     --spacing-36: 36px;
     --spacing-32: 32px;
     --spacing-24: 24px;
     --spacing-22: 22px;
+    --spacing-20: 20px;
     --spacing-16: 16px;
     --spacing-14: 14px;
     --spacing-12: 12px;
@@ -25,7 +26,7 @@
 }
 
 * {
-    font-family: 'Karla', sans-serif;
+    font-family: "Karla", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -53,23 +54,70 @@ main {
     background-color: var(--white);
 }
 
+h1 {
+    font: var(--font-header);
+}
+
+label {
+    font: var(--font-labels);
+}
+
+label:not(input[type="radio"] + label)::after {
+    content: " *";
+    color: var(--green-medium);
+}
+
 form {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-24);
 }
 
-input {
+input:not(input[type="checkbox"]):not(input[type="radio"]) {
     border-radius: 8px;
     border: 1px solid var(--grey-medium);
     height: 45px;
+    padding: 0px var(--spacing-12);
+    font: var(--font-input);
 }
 
-input:not(input[type='radio']) {
+input:hover,
+textarea:hover {
+    cursor: pointer;
+}
+
+input:not(input[type="radio"]) {
     width: 100%;
 }
 
+input:focus,
+textarea:focus {
+    outline: 1px solid var(--green-medium);
+}
+
+input[type="radio"] {
+    appearance: none;
+    margin: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--grey-medium);
+    border-radius: 16px;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    background-color: var(--green-medium);
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+}
+
 textarea {
+    font: var(--font-input);
+    padding: var(--spacing-12);
     resize: none;
     height: 96px;
     border-radius: 8px;
@@ -112,6 +160,7 @@ h1 {
 
 .general-enquiry,
 .support-request {
+    height: 45px;
     padding: 0 var(--spacing-24);
     border-radius: 8px;
     border: 1px solid var(--grey-medium);
@@ -121,6 +170,17 @@ h1 {
     gap: var(--spacing-12);
 }
 
+.general-enquiry label,
+.support-request label {
+    cursor: pointer;
+}
+
+.general-enquiry.selected,
+.support-request.selected {
+    background-color: var(--green-lighter);
+    border: 1px solid var(--green-medium);
+}
+
 .message-section {
     gap: var(--spacing-8);
     display: flex;
@@ -128,8 +188,20 @@ h1 {
 }
 
 #consent {
-    height: 16px;
-    width: 16px;
+    appearance: none;
+    border-radius: 1px;
+    background-color: var(--white);
+    height: 18px;
+    width: 18px;
+    border: 2px solid var(--grey-medium);
+    display: grid;
+    place-content: center;
+}
+
+#consent:checked {
+    background-image: url("./assets/images/icon-checkbox-check.svg");
+    background-size: contain;
+    border: none;
 }
 
 .consent-section {
@@ -141,12 +213,31 @@ h1 {
     align-items: center;
 }
 
+.consent {
+    display: flex;
+    gap: var(--spacing-20);
+    align-items: center;
+    cursor: pointer;
+}
+
+.consent label {
+    cursor: pointer;
+}
+
 .submit {
     height: 54px;
     border-radius: 8px;
     border: none;
     background-color: var(--green-medium);
     color: var(--white);
+    font: var(--font-submit);
+    transition: 0.3s;
+}
+
+.submit:hover {
+    background-color: hsl(169, 82%, 17%);
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .attribution {
