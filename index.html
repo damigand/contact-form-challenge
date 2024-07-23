@@ -10,24 +10,24 @@
     <body>
         <main class="container">
             <h1>Contact Us</h1>
-            <form action="">
+            <form id="form" novalidate>
                 <div class="name-section">
                     <div class="first-name">
                         <label for="name">First Name</label>
-                        <input type="text" name="name" id="name" required tabindex="1" />
-                        <span class="error">This field is required</span>
+                        <input type="text" name="name" id="name" tabindex="1" />
+                        <span class="error" id="name-error">This field is required</span>
                     </div>
                     <div class="last-name">
                         <label for="lastname">Last Name</label>
-                        <input type="text" name="lastname" id="lastname" required tabindex="2" />
-                        <span class="error">This field is required</span>
+                        <input type="text" name="lastname" id="lastname" tabindex="2" />
+                        <span class="error" id="lastname-error">This field is required</span>
                     </div>
                 </div>
                 <div class="email-section">
                     <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" required tabindex="3" />
-                    <span class="valid">Please enter a valid email address</span>
-                    <span class="error">This field is required</span>
+                    <input type="email" name="email" id="email" tabindex="3" />
+                    <span class="valid" id="email-valid">Please enter a valid email address</span>
+                    <span class="error" id="email-error">This field is required</span>
                 </div>
                 <div class="query-section">
                     <label for="">Query Type</label>
@@ -53,31 +53,31 @@
                             <label for="support">Support Request</label>
                         </div>
                     </div>
-                    <span class="error">Please select a query type</span>
+                    <span class="error" id="query-error">Please select a query type</span>
                 </div>
                 <div class="message-section">
                     <label for="message">Message</label>
                     <textarea name="message" id="message" tabindex="6"></textarea>
-                    <span class="error">This field is required</span>
+                    <span class="error" id="message-error">This field is required</span>
                 </div>
                 <div class="consent-section">
                     <div class="consent">
                         <input type="checkbox" name="consent" id="consent" tabindex="7" />
                         <label for="consent">I consent to being contacted by the team</label>
                     </div>
-                    <span class="error"
+                    <span class="error" id="consent-error"
                         >To submit this form, please consent to being contacted</span
                     >
                 </div>
-                <button type="submit" class="submit">Submit</button>
+                <button class="submit">Submit</button>
             </form>
-            <!-- <div class="toast">
-              <img src="" alt="" />
-              <h3>Message Sent!</h3>
-              <span>
-                Thanks for completing the form. We'll be in touch soon!
-              </span>
-          </div> -->
+            <div class="toast">
+                <div class="toast-header">
+                    <img src="assets/images/icon-success-check.svg" alt="success icon" />
+                    <h3>Message Sent!</h3>
+                </div>
+                <span> Thanks for completing the form. We'll be in touch soon! </span>
+            </div>
         </main>
 
         <div class="attribution" role="contentinfo">
